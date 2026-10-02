@@ -1,18 +1,18 @@
 # OctoChallengesShim
 
-Behebt einen Lua-Fehler im Zielrahmen von OctoWoW (WoW 1.12).
+Fixes a Lua error in OctoWoW's target frame (WoW 1.12).
 
 ## Problem
-OctoWoW ist ein Turtle-WoW-Fork und hat dessen `Interface\FrameXML\TargetFrame.lua` übernommen. Diese Datei greift auf die globale Tabelle `Turtle_ChallengesCache` zu, die auf Turtle WoW das Addon `Turtle_General` bereitstellt. OctoWoW liefert dieses Addon nicht mit, daher kommt beim Anvisieren:
+OctoWoW is a Turtle WoW fork and took over its `Interface\FrameXML\TargetFrame.lua`. That file accesses the global table `Turtle_ChallengesCache`, which on Turtle WoW is provided by the `Turtle_General` addon. OctoWoW does not ship that addon, so targeting something raises:
 
-- ohne Tabelle: `attempt to index global 'Turtle_ChallengesCache'`
-- mit leerer Tabelle: `attempt to index field '?'`, weil zwei Ebenen tief zugegriffen wird
+- without the table: `attempt to index global 'Turtle_ChallengesCache'`
+- with an empty table: `attempt to index field '?'`, because it is accessed two levels deep
 
-## Lösung
-Das Addon legt `Turtle_ChallengesCache` an, falls sie fehlt. Eine Metatabelle liefert für jeden unbekannten Schlüssel dieselbe leere Tabelle zurück, sodass auch der zweite Zugriff sauber `nil` ergibt. Es wächst kein Speicher.
+## Solution
+The addon creates `Turtle_ChallengesCache` if it is missing. A metatable returns the same empty table for every unknown key, so the second access cleanly yields `nil`. No memory grows.
 
-## Einstellungen
-Keine.
+## Settings
+None.
 
-## Entfernen
-Ordner löschen.
+## Removal
+Delete the folder.
