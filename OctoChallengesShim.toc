@@ -1,0 +1,6 @@
+## Interface: 11200
+## Title: Octo Challenges Shim
+## Notes: Legt die globale Tabelle Turtle_ChallengesCache an, die OctoWoWs eigenes|nInterface\FrameXML\TargetFrame.lua erwartet, aber nicht mitliefert.
+## Version: 1.0
+
+OctoChallengesShim.lua
