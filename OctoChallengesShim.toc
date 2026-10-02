@@ -2,6 +2,6 @@
 ## Title: Octo Challenges Shim
 ## Notes: Creates the global table Turtle_ChallengesCache that OctoWoW's own|nInterface\FrameXML\TargetFrame.lua expects but does not ship.
 ## Version: 1.0
-## Author: Henry
+## Author: Dinkleberrrg
 
 OctoChallengesShim.lua
